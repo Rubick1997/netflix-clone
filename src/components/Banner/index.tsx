@@ -1,9 +1,32 @@
-import React from "react";
+import axios from "../../axios";
+import React, { useEffect, useState } from "react";
+
+import requests from "../../requests";
 import styles from "./index.module.scss";
+import { ItemType } from "../../types";
 
 const Banner = () => {
-  const truncate = (string: string, n: number) => {
-    return string?.length > n ? string.substr(0, n - 1) + "..." : string;
+  const [movie, setMovie] = useState<ItemType>();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const request = await axios.get(requests.fetchNetflixOriginals);
+      setMovie(
+        request.data.results[
+          Math.floor(Math.random() * request.data.results.length - 1)
+        ]
+      );
+      return request;
+    };
+    fetchData();
+  }, []);
+
+  console.log(movie);
+
+  const truncate = (string: string | undefined, n: number) => {
+    if (string) {
+      return string?.length > n ? string.substr(0, n - 1) + "..." : string;
+    }
   };
 
   return (
@@ -11,18 +34,18 @@ const Banner = () => {
       className={styles.banner}
       style={{
         backgroundSize: "cover",
-        backgroundImage: `url("https://i.ytimg.com/vi/N-K7kH6JgbM/maxresdefault.jpg")`,
+        backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`,
         backgroundPosition: "center center",
       }}
     >
       <div className={styles.bannerContents}>
-        <h1 className={styles.bannerTitle}> Avatar:The Last Air bender</h1>
+        <h1 className={styles.bannerTitle}>{movie?.name || movie?.title}</h1>
         <div className={styles.bannerButtons}>
           <button className={styles.bannerButton}>Play</button>
           <button className={styles.bannerButton}>My List</button>
         </div>
         <h1 className={styles.bannerDescription}>
-          {truncate("This is description", 150)}
+          {truncate(movie?.overview, 150)}
         </h1>
       </div>
       <div className={styles.bannerFadeBottom} />
