@@ -36,6 +36,7 @@ export type RowType = {
 };
 
 export type RowItemType = {
+  id: number;
   vote_average: number;
   poster_path: string;
   title: string;

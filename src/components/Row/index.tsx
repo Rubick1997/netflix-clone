@@ -24,6 +24,7 @@ const Row: FunctionComponent<RowType> = ({ title, fetchUrl }) => {
       <div className={styles.rowPosters}>
         {movies.map((movie) => (
           <RowItem
+            id={movie.id}
             vote_average={movie.vote_average}
             name={movie.name}
             title={movie.title}
