@@ -16,6 +16,7 @@ export type ContentType = {
   title: string;
   name: string;
   vote_average: number;
+  backdrop_path: string;
 };
 
 export type ItemType = {
@@ -27,6 +28,18 @@ export type ItemType = {
   tagline: string;
   overview: string;
   backdrop_path: string;
+};
+
+export type RowType = {
+  title: string;
+  fetchUrl: string;
+};
+
+export type RowItemType = {
+  vote_average: number;
+  poster_path: string;
+  title: string;
+  name: string;
 };
 
 export type GenresType = { id: number; name: string };

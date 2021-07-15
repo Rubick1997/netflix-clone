@@ -1,0 +1,22 @@
+.row {
+  color: white;
+  margin-left: 2%;
+  margin-right: 1%;
+  &Posters {
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    padding: 25px;
+    width: 100%;
+    margin: auto;
+    &::-webkit-scrollbar {
+      width: 5px;
+      background-color: none;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      width: 10px;
+      background-color: #e50914;
+    }
+  }
+}
