@@ -14,18 +14,28 @@ const RowItem: FunctionComponent<RowItemType> = ({
 }) => {
   const base_url = `https://image.tmdb.org/t/p/original/`;
   return (
-    <Link to={`/details/${media_type}/${id}`}>
+    <Link
+      to={`/details/${media_type}/${id}`}
+      style={{ textDecoration: "none" }}
+    >
       <div className={styles.rowCard} key={id}>
-        <Badge
-          badgeContent={`${vote_average * 10}%`}
-          color={vote_average > 6 ? "primary" : "secondary"}
-          style={{ zIndex: 1 }}
-        />
-        <img
-          className={styles.rowPoster}
-          src={`${base_url}/${poster_path}`}
-          alt={`${name || title} poster`}
-        />
+        <div className={styles.rowCardMain}>
+          <Badge
+            badgeContent={`${vote_average * 10}%`}
+            color={vote_average > 6 ? "primary" : "secondary"}
+            style={{ zIndex: 1 }}
+          />
+          <img
+            className={styles.rowPoster}
+            src={
+              poster_path
+                ? `${base_url}/${poster_path}`
+                : "https://www.movienewz.com/img/films/poster-holder.jpg"
+            }
+            alt={`${name || title} poster`}
+          />
+        </div>
+        <div className={styles.rowCardTitle}>{name || title}</div>
       </div>
     </Link>
   );

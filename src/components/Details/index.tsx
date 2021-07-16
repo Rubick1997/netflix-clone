@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import styles from "./index.module.scss";
 import { getYear } from "../../helpers";
-import { ContentType, DetailsType } from "../../types";
+import { DetailsType } from "../../types";
 
 const PlayButton = withStyles({
   root: {

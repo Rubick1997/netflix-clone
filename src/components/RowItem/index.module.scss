@@ -2,8 +2,25 @@
   &Card {
     object-fit: contain;
     display: flex;
+    flex-direction: column;
     margin-right: 25px;
     transition: transform 450ms;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    &Main {
+      display: flex;
+    }
+    &Title {
+      margin-top: 3px;
+      background: #e50914;
+      display: flex;
+      flex-direction: column;
+      border-radius: 10px;
+      padding: 5px;
+      height: min-content;
+    }
     &:hover {
       cursor: pointer;
       transform: scale(1.08);
@@ -12,7 +29,7 @@
   }
   &Poster {
     border-radius: 25px;
-    width: 185px;
-    height: 278px;
+    width: 195px;
+    height: 288px;
   }
 }
