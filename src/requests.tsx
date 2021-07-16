@@ -17,46 +17,55 @@ export const rowsData = [
     id: 1,
     title: "NETFLIX ORIGINALS",
     fetchUrl: requests.fetchNetflixOriginals,
+    media_type: "tv",
   },
   {
     id: 9,
     title: "DISNEY PlUS ORIGINALS",
     fetchUrl: requests.fetchDisneyPlusOriginals,
+    media_type: "tv",
   },
   {
     id: 2,
     title: "Trending Now",
     fetchUrl: requests.fetchTrending,
+    media_type: "",
   },
   {
     id: 3,
     title: "Top Rated",
     fetchUrl: requests.fetchTopRated,
+    media_type: "movie",
   },
   {
     id: 4,
     title: "Action Movies",
     fetchUrl: requests.fetchActionMovies,
+    media_type: "movie",
   },
   {
     id: 5,
     title: "Comedy Movies",
     fetchUrl: requests.fetchComedyMovies,
+    media_type: "movie",
   },
   {
     id: 6,
     title: "Horror Movies",
     fetchUrl: requests.fetchHorrorMovies,
+    media_type: "movie",
   },
   {
     id: 7,
     title: "Romance Movies",
     fetchUrl: requests.fetchRomanceMovies,
+    media_type: "movie",
   },
   {
     id: 8,
     title: "Documentaries",
     fetchUrl: requests.fetchDocumentaries,
+    media_type: "movie",
   },
 ];
 

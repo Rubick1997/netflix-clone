@@ -8,13 +8,13 @@ import Row from "../Row";
 const HomeScreen = () => {
   return (
     <div className={styles.homeScreen}>
-      <NavBar />
       <Banner />
       {rowsData.map((item) => (
         <Row
           key={item.id}
           title={item.title}
           fetchUrl={item.fetchUrl}
+          media_type={item.media_type}
         />
       ))}
     </div>

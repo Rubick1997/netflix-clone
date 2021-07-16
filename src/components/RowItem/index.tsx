@@ -10,15 +10,16 @@ const RowItem: FunctionComponent<RowItemType> = ({
   name,
   title,
   id,
+  media_type,
 }) => {
   const base_url = `https://image.tmdb.org/t/p/original/`;
-
   return (
-    <Link to={`/details/${id}`}>
+    <Link to={`/details/${media_type}/${id}`}>
       <div className={styles.rowCard} key={id}>
         <Badge
           badgeContent={`${vote_average * 10}%`}
           color={vote_average > 6 ? "primary" : "secondary"}
+          style={{ zIndex: 1 }}
         />
         <img
           className={styles.rowPoster}

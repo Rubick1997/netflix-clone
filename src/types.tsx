@@ -18,6 +18,22 @@ export type ContentType = {
   vote_average: number;
   backdrop_path: string;
 };
+export type DetailsType = {
+  id: number;
+  media_type: string;
+  poster_path: string;
+  backdrop_path: string;
+  release_date: string;
+  first_air_date: string;
+  title: string;
+  name: string;
+  vote_average: number;
+  runtime: number;
+  episode_run_time: number[];
+  genres: GenresType[];
+  overview:string
+};
+
 
 export type ItemType = {
   poster_path: string;
@@ -33,6 +49,7 @@ export type ItemType = {
 export type RowType = {
   title: string;
   fetchUrl: string;
+  media_type: string;
 };
 
 export type RowItemType = {
@@ -41,6 +58,7 @@ export type RowItemType = {
   poster_path: string;
   title: string;
   name: string;
+  media_type: string;
 };
 
 export type GenresType = { id: number; name: string };

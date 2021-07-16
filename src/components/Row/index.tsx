@@ -6,7 +6,7 @@ import { ContentType, RowType } from "../../types";
 
 import RowItem from "../RowItem";
 
-const Row: FunctionComponent<RowType> = ({ title, fetchUrl }) => {
+const Row: FunctionComponent<RowType> = ({ title, fetchUrl, media_type }) => {
   const [movies, setMovies] = useState<ContentType[]>([]);
 
   useEffect(() => {
@@ -24,6 +24,7 @@ const Row: FunctionComponent<RowType> = ({ title, fetchUrl }) => {
       <div className={styles.rowPosters}>
         {movies.map((movie) => (
           <RowItem
+            media_type={media_type.length > 0 ? media_type : movie.media_type}
             id={movie.id}
             vote_average={movie.vote_average}
             name={movie.name}
