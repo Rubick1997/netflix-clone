@@ -15,18 +15,22 @@ import { RootState } from "../app/store";
 //   }
 // );
 
+export type State = {
+  user: { userInfo: { email: string; uid: string } };
+};
+
 export const userSlice = createSlice({
   name: "user",
   initialState: {
-    user: null,
+    userInfo: null,
   },
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
     login: (state, action) => {
-      state.user = action.payload;
+      state.userInfo = action.payload;
     },
     logout: (state) => {
-      state.user = null;
+      state.userInfo = null;
     },
   },
   // The `extraReducers` field lets the slice handle actions defined elsewhere,
@@ -34,6 +38,6 @@ export const userSlice = createSlice({
 });
 
 export const { login, logout } = userSlice.actions;
-export const selectUser = (state: RootState) => state.user.user;
+export const selectUser = (state: State) => state.user.userInfo;
 
 export default userSlice.reducer;

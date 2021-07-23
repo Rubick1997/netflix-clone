@@ -1,0 +1,57 @@
+.profile {
+  background-color: black;
+  height: 100vh;
+  color: white;
+  &Body {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: auto auto;
+    padding-top: 8%;
+    max-width: 800px;
+    h1 {
+      font-weight: 400;
+      font-size: 60px;
+      border-bottom: 1px solid #282c2d;
+      margin-bottom: 20px;
+    }
+  }
+  &Info {
+    display: flex;
+    img {
+      height: 100px;
+    }
+  }
+  &Details {
+    color: white;
+    margin-left: 25px;
+    flex: 1;
+    input {
+      background-color: gray;
+      font-weight: bold;
+      color: white;
+      outline-width: 0;
+      width: 100%;
+      padding: 15px;
+      font-size: 15px;
+      padding-left: 20px;
+      border: none;
+    }
+  }
+  &SignOut {
+    padding: 10px 20px;
+    font-size: 1rem;
+    margin-top: 5%;
+    width: 100%;
+    color: #fff;
+    background-color: #e50914;
+    cursor: pointer;
+  }
+  &Plans {
+    margin-top: 20px;
+    h3 {
+      border-bottom: 1px solid #282c2d;
+      padding-bottom: 10px;
+    }
+  }
+}

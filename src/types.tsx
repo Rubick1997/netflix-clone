@@ -31,9 +31,8 @@ export type DetailsType = {
   runtime: number;
   episode_run_time: number[];
   genres: GenresType[];
-  overview:string
+  overview: string;
 };
-
 
 export type ItemType = {
   poster_path: string;

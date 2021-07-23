@@ -13,23 +13,23 @@ import ProfileScreen from "./screens/ProfileScreen";
 
 function App() {
   const user = useSelector(selectUser);
-  const dispath = useDispatch();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((userAuth) => {
       if (userAuth) {
-        dispath(
+        dispatch(
           login({
             uid: userAuth.uid,
             email: userAuth.email,
           })
         );
       } else {
-        dispath(logout);
+        dispatch(logout());
       }
     });
     return unsubscribe;
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="App">

@@ -31,6 +31,7 @@ const NavBar = () => {
           alt="netflix logo"
         />
         <img
+          onClick={() => history.push("/profile")}
           className={styles.navAvatar}
           src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
           alt="netflix avatar"
