@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import "./App.css";
@@ -6,9 +6,30 @@ import Details from "./screens/Details";
 import HomeScreen from "./screens/HomeScreen";
 import NavBar from "./components/NavBar";
 import Login from "./screens/Login";
+import { auth } from "./firebase";
+import { useDispatch, useSelector } from "react-redux";
+import { login, logout, selectUser } from "./features/userSlice";
+import ProfileScreen from "./screens/ProfileScreen";
 
 function App() {
-  const user = null;
+  const user = useSelector(selectUser);
+  const dispath = useDispatch();
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((userAuth) => {
+      if (userAuth) {
+        dispath(
+          login({
+            uid: userAuth.uid,
+            email: userAuth.email,
+          })
+        );
+      } else {
+        dispath(logout);
+      }
+    });
+    return unsubscribe;
+  }, []);
 
   return (
     <div className="App">
@@ -21,6 +42,7 @@ function App() {
             <Switch>
               <Route exact path="/" component={HomeScreen} />
               <Route path="/details/:media_type/:id" component={Details} />
+              <Route path="/profile" component={ProfileScreen} />
             </Switch>
           </>
         )}
