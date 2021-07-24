@@ -7,6 +7,7 @@ import styles from "./index.module.scss";
 const ProfileScreen = () => {
   const user = useSelector(selectUser);
   const [emailInput, setEmailInput] = useState(user.email);
+  const [isEditing, setIsEditing] = useState(false);
   return (
     <div className={styles.profile}>
       <div className={styles.profileBody}>
@@ -17,13 +18,23 @@ const ProfileScreen = () => {
             alt=""
           />
           <div className={styles.profileDetails}>
-            <input
-              type="text"
-              value={emailInput}
-              onChange={(e) => {
-                setEmailInput(e.target.value);
-              }}
-            />
+            <div className={styles.profileInput}>
+              <input
+                disabled={!isEditing}
+                type="text"
+                value={emailInput}
+                onChange={(e) => {
+                  setEmailInput(e.target.value);
+                }}
+              />
+              <button
+                onClick={() => {
+                  setIsEditing((prev) => !prev);
+                }}
+              >
+                {isEditing ? "Save" : "Edit"}
+              </button>
+            </div>
             <div className={styles.profilePlans}>
               <h3>Plans</h3>
               <button

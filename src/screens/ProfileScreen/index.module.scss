@@ -54,4 +54,14 @@
       padding-bottom: 10px;
     }
   }
+  &Input {
+    display: flex;
+    button {
+      color: #fff;
+      background-color: #e50914;
+      cursor: pointer;
+      outline-width: 0;
+      border: none;
+    }
+  }
 }
