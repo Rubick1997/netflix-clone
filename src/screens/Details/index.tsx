@@ -6,6 +6,7 @@ import axios from "axios";
 import styles from "./index.module.scss";
 import { getYear } from "../../helpers";
 import { DetailsType } from "../../types";
+import YouTube from "react-youtube";
 
 const PlayButton = withStyles({
   root: {
@@ -45,6 +46,7 @@ const GroupWatchButton = withStyles({
 
 const Details = () => {
   const { id, media_type } = useParams();
+  const [trailer, setTrailer] = useState("");
   const [currentDetails, setCurrentDetails] = useState<DetailsType>();
 
   const fetchData = async () => {
@@ -62,6 +64,17 @@ const Details = () => {
     }
     // eslint-disable-next-line
   }, []);
+
+  const fetchTrailer = async () => {
+    if (trailer) {
+      setTrailer("");
+    } else {
+      const { data } = await axios.get(
+        `https://api.themoviedb.org/3/${media_type}/${id}/videos?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`
+      );
+      setTrailer(data.results[0]?.key);
+    }
+  };
 
   return (
     <div className={styles.container}>
@@ -90,6 +103,7 @@ const Details = () => {
                 currentDetails?.name || currentDetails?.title
               } background`}
             />
+            {trailer && <YouTube videoId={trailer} />}
           </div>
           <div className={styles.text}>
             <div className={styles.subTitle}>
@@ -113,7 +127,12 @@ const Details = () => {
             </PlayButton>
             <TrailerButton
               variant="outlined"
-              startIcon={<PlayArrow style={{ fontSize: 30, fill: "white" }} />}
+              startIcon={
+                !trailer && (
+                  <PlayArrow style={{ fontSize: 30, fill: "white" }} />
+                )
+              }
+              onClick={fetchTrailer}
             >
               <div style={{ letterSpacing: 1.8, fontSize: 15 }}>Trailer</div>
             </TrailerButton>
