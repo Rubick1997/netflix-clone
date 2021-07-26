@@ -1,9 +1,11 @@
-import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import userReducer from '../features/userSlice';
+import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
+import userReducer from "../features/userSlice";
+import roleReducer from "../features/roleSlice";
 
 export const store = configureStore({
   reducer: {
     user: userReducer,
+    role: roleReducer,
   },
 });
 
