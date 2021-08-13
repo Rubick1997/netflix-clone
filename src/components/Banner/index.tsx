@@ -45,7 +45,6 @@ const Banner = () => {
     };
     fetchData();
   }, []);
-  console.log(movie);
   const truncate = (string: string | undefined, n: number) => {
     if (string) {
       return string?.length > n ? string.substr(0, n - 1) + "..." : string;

@@ -10,6 +10,7 @@ const requests = {
   fetchRomanceMovies: `/discover/movie?api_key=${API_KEY}&with_genres=10749`,
   fetchDocumentaries: `/discover/movie?api_key=${API_KEY}&with_genres=99`,
   fetchDisneyPlusOriginals: `/discover/tv?api_key=${API_KEY}&with_networks=2739`,
+  fetchHuluCurrentStreams: `/discover/tv?api_key=${API_KEY}&with_networks=453`,
 };
 
 export const rowsData = [
@@ -67,6 +68,13 @@ export const rowsData = [
     fetchUrl: requests.fetchDocumentaries,
     media_type: "movie",
   },
+  {
+    id: 10,
+    title: "Hulu Current Streams",
+    fetchUrl: requests.fetchHuluCurrentStreams,
+    media_type: "movie",
+  },
+
 ];
 
 export default requests;
